@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item menu-open">
             <a href="{{route('admin.index')}}" class="nav-link">
               <p>
-                Kullanıcılar<i class="right"></i>
+                Adminler<i class="right"></i>
               </p>
             </a>
             <a href="{{route('question.index')}}" class="nav-link">

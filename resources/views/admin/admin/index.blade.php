@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <!-- /.row -->
     <div class="row">
         <div class="col-12">
           <div class="card">
@@ -48,7 +47,5 @@
           </div>
           <!-- /.card -->
         </div>
-      </div>
-      <!-- /.row -->
-      
+    </div>      
 @endsection

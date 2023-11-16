@@ -26,6 +26,7 @@ class AdminController extends Controller
         $this->adminRepository->adminDelete($admin);
         return redirect(route('admin.index'));
     }
+    
     public function adminUpdate(Request $request,Admin $admin)
     {
         $data = [
