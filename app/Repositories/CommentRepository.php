@@ -9,4 +9,13 @@ class CommentRepository{
    {
      return Comment::all();
    }
+   public function commentUpdate()
+   {
+
+   }
+   public function commentDelete()
+   {
+    
+   }
 }
+

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers\Admin\Comment;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Repositories\CommentRepository;
 use Illuminate\Http\Request;
 
@@ -16,16 +18,5 @@ class CommentController extends Controller
     {
         $comments=$this->commentRepository->index();
         return view('admin.comment.index',['comments'=>$comments]);
-    }
-
-
-    public function updateComment()
-    {
-
-    }
-
-    public function deleteComment()
-    {
-        
     }
 }

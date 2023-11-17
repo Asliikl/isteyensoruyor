@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody>
-             @foreach ($comments as $comment) 
+             {{-- @foreach ($comments as $comment) 
               <tr>
                 <td>{{$comment->id}}</td>
                 <td>{{$comment->question}}</td>
@@ -38,7 +38,7 @@
                 <td class="text-center"><a href="{{route('comment.edit',[$comment])}}"><button class="btn btn-success">Düzenle</button></a></td>
                 <td class="text-center"><a href="{{route('comment.delete',[$comment])}}"><button class="btn btn-danger">Sil</button></a></td>
             </tr>
-              @endforeach
+              @endforeach --}}
             </tbody>
           </table>
         </div>
