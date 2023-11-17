@@ -23,22 +23,24 @@
           <table class="table table-hover text-nowrap">
             <thead>
               <tr>
-                <th>Question ID</th>
-                <th>Content</th>
+                <th>ID</th>
+                <th>Comment Content</th></th>
                 <th>Owner</th>
-                <th colspan="2">Actions</th>
+                <th>Question Content</th>
+                <th colspan="2" style="text-align:center">Actions</th>
               </tr>
             </thead>
             <tbody>
-             {{-- @foreach ($comments as $comment) 
+             @foreach ($comments as $comment) 
               <tr>
                 <td>{{$comment->id}}</td>
-                <td>{{$comment->question}}</td>
+                <td>{{$comment->content}}</td>
                 <td>{{$comment->user->name}}</td>
+                <td>{{$comment->question->question}}</td>
                 <td class="text-center"><a href="{{route('comment.edit',[$comment])}}"><button class="btn btn-success">Düzenle</button></a></td>
                 <td class="text-center"><a href="{{route('comment.delete',[$comment])}}"><button class="btn btn-danger">Sil</button></a></td>
             </tr>
-              @endforeach --}}
+              @endforeach
             </tbody>
           </table>
         </div>

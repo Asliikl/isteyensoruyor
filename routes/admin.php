@@ -38,9 +38,9 @@ use App\Http\Controllers\Admin\Comment\CommentController;
 
         Route::group(['prefix'=>'/comments'],function(){
             Route::get("",[CommentController::class,"index"])->name("comment.index");
-            // Route::get("edit/{comment}",CommentController::class,"commentEdit")->name("comment.edit");
-            // Route::post("update/{comment}",CommentController::class, "commentUpdate")->name("comment.update");
-            // Route::get("delete/{comment}",CommentController::class,"commentDelete")->name("comment.delete");
+            Route::get("edit/{comment}",[CommentController::class,"commentEdit"])->name("comment.edit");
+            Route::post("update/{comment}",[CommentController::class,"commentUpdate"])->name("comment.update");
+            Route::get("delete/{comment}",[CommentController::class,"commentDelete"])->name("comment.delete");
         });
      
        

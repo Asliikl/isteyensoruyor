@@ -23,7 +23,7 @@ class QuestionController extends Controller
 
     public function questionEdit(Question $question)
     {
-        $allUsers = User::all(); //select option da kullanmak için tum userları çekilir
+        $allUsers = User::all(); //select option da kullanmak için tum userlar çekilir
         return view('admin.question.form',compact('question','allUsers'));
     }
     public function questionUpdate(Request $request,Question $question)

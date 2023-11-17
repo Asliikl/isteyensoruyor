@@ -5,7 +5,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Responsive Hover Table</h3>
+              <h3 class="card-title">Admins Table</h3>
 
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -27,7 +27,7 @@
                     <th>ID</th>
                     <th>UserName</th>
                     <th>Email</th>
-                    <th colspan="2">transactions</th>
+                    <th colspan="2" style="text-align:center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -9,13 +9,14 @@ class CommentRepository{
    {
      return Comment::all();
    }
-   public function commentUpdate()
+   public function update(array $data, Comment $comment)
    {
-
+      $comment->update($data);
+      return $comment;
    }
-   public function commentDelete()
+   public function delete(Comment $comment)
    {
-    
+      $comment->delete();
    }
 }
 

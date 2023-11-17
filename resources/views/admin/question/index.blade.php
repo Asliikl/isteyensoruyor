@@ -26,7 +26,7 @@
                 <th>Question ID</th>
                 <th>Content</th>
                 <th>Owner</th>
-                <th colspan="2">Actions</th>
+                <th colspan="2" style="text-align:center">Actions</th>
               </tr>
             </thead>
             <tbody>

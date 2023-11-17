@@ -12,7 +12,6 @@ class AuthController extends Controller
     }
     public function loginPost(Request $request) {
         $checkUser = Admin::where('email',$request->get('email'))->first();
-
         if($checkUser && \Hash::check($request->get('password'), $checkUser->password)){
         session()->put('admin', $checkUser);
         

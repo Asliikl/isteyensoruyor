@@ -29,6 +29,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
+    <button style="margin-left:80px;margin-top:20px" class="btn btn-danger"><a class=" text-white" href="{{ route('admin.logout') }}">Logout</a></button>
+
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
