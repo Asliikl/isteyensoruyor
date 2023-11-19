@@ -15,6 +15,10 @@ class UserNotLoggedMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $currentUser=session()->has('user');
+        if($currentUser){
+            return redirect(route('user.home'));
+        }
         return $next($request);
     }
 }

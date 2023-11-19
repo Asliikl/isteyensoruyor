@@ -15,6 +15,9 @@ class UserLoggedMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!session()->has('user')){
+            return redirect(route('user.login'));
+        }
         return $next($request);
     }
 }

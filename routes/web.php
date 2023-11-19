@@ -1,8 +1,12 @@
 
 <?php
 
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\User\Question\QuestionController;
+use App\Http\Controllers\User\RegisterController;
+
 
 
 Route::get('/', function () {
@@ -10,17 +14,30 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'user'],function(){
+
+    Route::group(['prefix'=>'/register'],function(){
+        Route::get("",[RegisterController::class,"register"])->name("user.register");
+        Route::post("",[RegisterController::class,"registerPost"])->name("user.registerPost");
+    }); 
     Route::group(['prefix'=>'/login', 'middleware'=>'user.notLogged'],function(){
-        Route::get("",[UserController::class, "login"])->name("user.login");
-        Route::post("",[UserController::class,"loginPost"])->name("user.loginPost");
+        Route::get("",[AuthController::class, "login"])->name("user.login");
+        Route::post("",[AuthController::class,"loginPost"])->name("user.loginPost");  
     });
 
-    Route::get("logout",[UserController::class,"logout"])->name("user.logout");
-
-    Route::group(['middleware'=>'UserLoggedMiddleware'],function(){
-        Route::get("home",[UserController::class,"home"])->name("user.home");
+    Route::group(['middleware'=>'user.logged'],function(){
+        Route::group(['prefix'=>'/home'],function(){
+            Route::get("",[HomeController::class,"home"])->name("user.home");
+            Route::get("",[HomeController::class,"getAll"])->name("user.getAll");
+            Route::post("",[QuestionController::class,"questionPost"])->name("user.questionPost");
+        }); 
     });
+    Route::get("logout",[AuthController::class,"logout"])->name("user.logout");
     
+
+
+  
+
+
 });
 
 
