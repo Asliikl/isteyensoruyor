@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\User\Comment\CommentController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\AuthController;
@@ -27,8 +28,12 @@ Route::group(['prefix'=>'user'],function(){
     Route::group(['middleware'=>'user.logged'],function(){
         Route::group(['prefix'=>'/home'],function(){
             Route::get("",[HomeController::class,"home"])->name("user.home");
-            Route::get("",[HomeController::class,"getAll"])->name("user.getAll");
             Route::post("",[QuestionController::class,"questionPost"])->name("user.questionPost");
+
+            Route::group(['prefix'=>'/comment'],function(){
+                Route::get("", [CommentController::class, "commentGetAll"])->name("user.commentGetAll");
+                Route::post("", [CommentController::class, "commentPost"])->name("user.commentPost");
+            });
         }); 
     });
     Route::get("logout",[AuthController::class,"logout"])->name("user.logout");

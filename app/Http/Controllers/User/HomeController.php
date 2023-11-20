@@ -15,12 +15,7 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
-        return view('user.home');
-    }
-    public function getAll()
-    {
         $questions=$this->questionRepository->index();
-
-        return view('user.home',['questions'=>$questions]);
+        return view('user.home', ['questions' => $questions]);
     }
 }

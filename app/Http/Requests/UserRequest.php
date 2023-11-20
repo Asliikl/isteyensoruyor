@@ -15,5 +15,5 @@ class UserRequest extends FormRequest{
             'gender'=>'required',
             'password'=>'required'
         ];
-}
+    }
 }

@@ -40,12 +40,10 @@
             <form action="{{ route('user.questionPost') }}" method="POST">
                 @csrf 
                 <textarea name="question" id="" cols="120" rows="3" placeholder="enter text..."></textarea>
-                <button type="submit">Ask Question <i class="fa fa-question" aria-hidden="true"></i></button>
+                <button type="submit">Ask Question<i class="fa fa-question" aria-hidden="true"></i></button>
             </form>
-        </div>
-        
+        </div>       
     </div>
-    
     <br class="mt-4 mx-4">
     <h2>SORULAR</h2><br>
     <div class="row">
@@ -55,9 +53,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Owner: {{$question->user->name}}</h5>
                         <p class="card-text">Content: {{$question->question}}</p>
-                        <a href="#" class="btn btn-primary">Yorum yap</a>
+                        <a href="{{route ('user.commentGetAll')}}" class="btn btn-primary">Yorumlara Git</a>
                     </div>
-                    <a href="" class="mx-4">Yorumlara git</a>
                 </div>
             </div>
         @endforeach
