@@ -27,30 +27,20 @@
         cursor: pointer;
         font-size: 14px;
     }
-    .card-title{
-        font: bold;
-        color: #4caf50
-    }
  
 </style>
 @endpush
 
 @section('content')
 <div class="container">
-<div class="row">
-    @foreach ($comments as $comment) 
-        <div class="col-md-4"> 
-            <div class="card mb-3">
-                <div class="card-body">
-                    <p class="card-title">Owner: {{$comment->user->name}}</p>
-                    <p class="card-text">Question: {{$comment->question->question}}</p>
-                    <p class="card-text">Comment : {{$comment->content}}</p>
-                </div>
-            </div>
-        </div>
-        
-    @endforeach 
-</div>
-<a href="{{ route('user.commentForm')}}" class="btn btn-primary">Sende Yorum Yap</a>
+    <div class="row">
+        <div class="question-box">
+            <form action="{{route('user.commentPost')}}" method="POST">
+                @csrf 
+                <textarea name="content" id="" cols="120" rows="3" placeholder="enter text..."></textarea>
+               <button class="btn btn-primary">Add Comment</button>
+            </form>
+        </div>       
+    </div>
 </div>
 @endsection

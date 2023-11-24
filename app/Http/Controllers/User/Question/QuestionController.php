@@ -5,8 +5,7 @@ namespace App\Http\Controllers\User\Question;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
 use App\Models\Question;
-use App\Models\User;
-use App\Repositories\QuestionRepository;
+
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller

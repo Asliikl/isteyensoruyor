@@ -31,7 +31,8 @@ Route::group(['prefix'=>'user'],function(){
             Route::post("",[QuestionController::class,"questionPost"])->name("user.questionPost");
 
             Route::group(['prefix'=>'/comment'],function(){
-                Route::get("", [CommentController::class, "commentGetAll"])->name("user.commentGetAll");
+                Route::get("/{questionId}", [CommentController::class, "commentGetAll"])->name("user.commentGetAll");
+                Route::get("", [CommentController::class, "commentForm"])->name("user.commentForm");
                 Route::post("", [CommentController::class, "commentPost"])->name("user.commentPost");
             });
         }); 

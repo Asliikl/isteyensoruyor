@@ -10,7 +10,8 @@ class CommentRequest extends FormRequest{
     }
     public function rules(){
         return [ 
-            'comment'=>'required'
+            'content'=>'required',
+            'question_id'=>'required'
         ];
     }
 }
