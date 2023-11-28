@@ -37,35 +37,34 @@
 
 @section('content')
 <div class="container question-box">
-<div class="row">
-    @foreach ($questions as $question) 
-        <div class="col-md-8"> 
-            <p class="card-title" style="font-size: 35px;">         
-                {{$question->user->name}}: {{$question->question}}
-            </p>
-            <div class="card-body">
-                <p class="card-text text-danger">Comments:</p>
-                @foreach ($question->comments as $comment)
-                <div style="border: 1px solid black" class="mb-2">
-                    <p class="bg-dark text-white p-2">
-                        {{$comment->user->name}}
-                        <span class="ml-4">{{ $comment->created_at }}</span>
-                    </p>
-                    <p class="p-2">{{$comment->content}}</p>
+    <div class="row">
+        @foreach ($questions as $question) 
+            <div class="col-md-8"> 
+                <p class="card-title" style="font-size: 35px;">         
+                    {{$question->user->name}}: {{$question->question}}
+                </p>
+                <div class="card-body">
+                    <p class="card-text text-danger">Comments:</p>
+                    @foreach ($question->comments as $comment)
+                    <div style="border: 1px solid black" class="mb-2">
+                        <p class="bg-dark text-white p-2">
+                            {{$comment->user->name}}
+                            <span class="ml-4">{{ $comment->created_at }}</span>
+                        </p>
+                        <p class="p-2">{{$comment->content}}</p>
+                    </div>
+                @endforeach
+                
                 </div>
-            @endforeach
-            
             </div>
-        </div>
-    @endforeach 
-</div>
+        @endforeach 
+    </div>
 
-<form action="{{ route('user.commentPost', ['questionId' => $question->id]) }}" method="POST">
-    @csrf
-    <textarea name="content" cols="100" rows="4" placeholder="Enter text..."></textarea>
-    <button type="submit" class="btn btn-primary">Sende Yorum Yap</button>
-</form>
-
+    <form action="{{ route('user.commentPost', ['questionId' => $question->id]) }}" method="POST">
+        @csrf
+        <textarea name="content" cols="100" rows="4" placeholder="Enter text..."></textarea>
+        <button type="submit" class="btn btn-primary">Sende Yorum Yap</button>
+    </form>
 
 </div>
 @endsection

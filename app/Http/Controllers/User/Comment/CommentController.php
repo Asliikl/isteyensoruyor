@@ -17,7 +17,7 @@ class CommentController extends Controller
     {
         $this->commentRepository=$commentRepository;
     }
-    
+
     public function commentPost(CommentRequest $request, $questionId)
     {
         $new_comment = Comment::create([
@@ -28,6 +28,5 @@ class CommentController extends Controller
     
         return redirect(route('user.questionGetAll', ['questionId' => $questionId]));
     }
-    
 
 }

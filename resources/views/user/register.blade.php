@@ -43,9 +43,9 @@
      </div>
      <div class="card-footer">
          <button type="submit" class="btn btn-success">Sign in</button>
-         <button type="button" class="btn btn-default float-right"><a href="{{route('user.login')}}">Oturum Aç</a></button>
+         <button type="button" class="btn btn-default float-right"><a href="{{route('user.login')}}">Log in</a></button>
      </div>
- </form>
+    </form>
  
 </div>
  <!-- /.card -->

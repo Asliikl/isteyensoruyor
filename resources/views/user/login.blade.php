@@ -3,7 +3,7 @@
  <!-- Horizontal Form -->
  <div class="card card-info col-md-6 mx-auto mt-4">
     <div class="card-header">
-      <h3 class="card-title">Register Form</h3>
+      <h3 class="card-title">Login Form</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -26,8 +26,8 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        <button type="submit" class="btn btn-success ">Sign in</button>
-        <button type="button" class="btn btn-default float-right"><a href="{{route('user.register')}}">Kayıt Ol</a></button>
+        <button type="submit" class="btn btn-success ">Login</button>
+        <button type="button" class="btn btn-default float-right"><a href="{{route('user.register')}}">Register</a></button>
       </div>
       <!-- /.card-footer -->
     </form>

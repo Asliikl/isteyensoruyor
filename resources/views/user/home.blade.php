@@ -8,7 +8,7 @@
         background-color: #ffffff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        width: 600px;
+        width:1200px;
         padding: 20px;
         box-sizing: border-box;
     }
@@ -34,11 +34,13 @@
 @endpush
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="question-box">
             <form action="{{ route('user.questionPost') }}" method="POST">
                 @csrf 
+                <p style="color:#4caf50">Do you want to ask a question?</p>
                 <textarea name="question" id="" cols="120" rows="3" placeholder="enter text..."></textarea>
                 <button type="submit">Ask Question<i class="fa fa-question" aria-hidden="true"></i></button>
             </form>
@@ -61,8 +63,6 @@
         @endforeach
     </div>
 </div>
-
-
 @endsection
 
 @push('js') 
