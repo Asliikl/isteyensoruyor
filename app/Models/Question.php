@@ -11,8 +11,18 @@ class Question extends Model
     use HasFactory;
     protected $guarded = []; 
 
-     public function user()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function commentUser()
+    {
+        return $this->hasOne(Comment::class,'user_id','id');
     }
 }

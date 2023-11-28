@@ -17,25 +17,17 @@ class CommentController extends Controller
     {
         $this->commentRepository=$commentRepository;
     }
-    public function commentGetAll($questionId)
+    
+    public function commentPost(CommentRequest $request, $questionId)
     {
-        $comments = $this->commentRepository->getCommentsByQuestionId($questionId);
-        return view('user.comment', ['comments' => $comments]);
-    }
-   
-    public function commentForm()
-    {
-        return view('user.commentForm');
-    }
-
-    public function commentPost(CommentRequest $request)
-    {
-        $new_comment=Comment::create([
-            'content'=>$request->get('content'),
-            'user_id'=>session()->get('user')->id,
-            'question_id'=>$request->get('question_id'),
+        $new_comment = Comment::create([
+            'content' => $request->input('content'),
+            'user_id' => session()->get('user')->id,
+            'question_id' => $questionId,
         ]);
-        return redirect(route('user.home'));
+    
+        return redirect(route('user.questionGetAll', ['questionId' => $questionId]));
     }
-  
+    
+
 }

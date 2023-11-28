@@ -15,4 +15,9 @@ class QuestionRepository{
     public function delete(Question $question){
         $question->delete();
     }
+
+    public function getCommentsByQuestionId($questionId)
+    {
+        return Question::where('id', $questionId)->get();
+    }
 }

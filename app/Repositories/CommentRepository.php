@@ -10,10 +10,7 @@ class CommentRepository{
      return Comment::all();
    }
 
-   public function getCommentsByQuestionId($questionId)
-   {
-       return Comment::where('question_id', $questionId)->get();
-   }
+
    
    public function update(array $data, Comment $comment)
    {

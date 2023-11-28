@@ -28,22 +28,17 @@ Route::group(['prefix'=>'user'],function(){
     Route::group(['middleware'=>'user.logged'],function(){
         Route::group(['prefix'=>'/home'],function(){
             Route::get("",[HomeController::class,"home"])->name("user.home");
-            Route::post("",[QuestionController::class,"questionPost"])->name("user.questionPost");
+            Route::post("question-post",[QuestionController::class,"questionPost"])->name("user.questionPost");
 
-            Route::group(['prefix'=>'/comment'],function(){
-                Route::get("/{questionId}", [CommentController::class, "commentGetAll"])->name("user.commentGetAll");
-                Route::get("", [CommentController::class, "commentForm"])->name("user.commentForm");
-                Route::post("", [CommentController::class, "commentPost"])->name("user.commentPost");
+            Route::group(['prefix'=>'/question/{questionId}'],function(){
+                Route::get("", [QuestionController::class, "questionGetAll"])->name("user.questionGetAll");
+                Route::post("",[CommentController::class, "commentPost"])->name("user.commentPost");
+
             });
         }); 
     });
     Route::get("logout",[AuthController::class,"logout"])->name("user.logout");
     
-
-
-  
-
-
 });
 
 

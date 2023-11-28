@@ -51,9 +51,9 @@
             <div class="col-md-4"> 
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Owner: {{$question->user->name}}</h5>
-                        <p class="card-text">Content: {{$question->question}}</p>
-                        <a href="{{ route('user.commentGetAll', ['questionId' => $question->id]) }}" class="btn btn-primary">Yorumlara Git</a>
+                        <h5 class="card-title bg-dark">Owner: {{$question->user->name}}</h5>
+                        <p class="card-text">Question Content: {{$question->question}}</p>
+                        <a href="{{ route('user.questionGetAll', ['questionId' => $question->id]) }}" class="btn btn-primary">Yorumlara Git</a>
 
                     </div>
                 </div>

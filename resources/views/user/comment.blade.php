@@ -6,7 +6,7 @@
         background-color: #ffffff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        width: 600px;
+        width: 1200px;
         padding: 20px;
         box-sizing: border-box;
     }
@@ -36,21 +36,36 @@
 @endpush
 
 @section('content')
-<div class="container">
+<div class="container question-box">
 <div class="row">
-    @foreach ($comments as $comment) 
-        <div class="col-md-4"> 
-            <div class="card mb-3">
-                <div class="card-body">
-                    <p class="card-title">Owner: {{$comment->user->name}}</p>
-                    <p class="card-text">Question: {{$comment->question->question}}</p>
-                    <p class="card-text">Comment : {{$comment->content}}</p>
+    @foreach ($questions as $question) 
+        <div class="col-md-8"> 
+            <p class="card-title" style="font-size: 35px;">         
+                {{$question->user->name}}: {{$question->question}}
+            </p>
+            <div class="card-body">
+                <p class="card-text text-danger">Comments:</p>
+                @foreach ($question->comments as $comment)
+                <div style="border: 1px solid black" class="mb-2">
+                    <p class="bg-dark text-white p-2">
+                        {{$comment->user->name}}
+                        <span class="ml-4">{{ $comment->created_at }}</span>
+                    </p>
+                    <p class="p-2">{{$comment->content}}</p>
                 </div>
+            @endforeach
+            
             </div>
         </div>
-        
     @endforeach 
 </div>
-<a href="{{ route('user.commentForm')}}" class="btn btn-primary">Sende Yorum Yap</a>
+
+<form action="{{ route('user.commentPost', ['questionId' => $question->id]) }}" method="POST">
+    @csrf
+    <textarea name="content" cols="100" rows="4" placeholder="Enter text..."></textarea>
+    <button type="submit" class="btn btn-primary">Sende Yorum Yap</button>
+</form>
+
+
 </div>
 @endsection
