@@ -63,7 +63,7 @@
     <form action="{{ route('user.commentPost', ['questionId' => $question->id]) }}" method="POST">
         @csrf
         <textarea name="content" cols="100" rows="4" placeholder="Enter text..."></textarea>
-        <button type="submit" class="btn btn-primary">Sende Yorum Yap</button>
+        <button type="submit" class="btn btn-primary">post a comment</button>
     </form>
 
 </div>

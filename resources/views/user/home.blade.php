@@ -47,7 +47,7 @@
         </div>       
     </div>
     <br class="mt-4 mx-4">
-    <h2>SORULAR</h2><br>
+    <h2>Questions</h2><br>
     <div class="row">
         @foreach ($questions as $question) 
             <div class="col-md-4"> 
@@ -55,7 +55,7 @@
                     <div class="card-body">
                         <h5 class="card-title bg-dark">Owner: {{$question->user->name}}</h5>
                         <p class="card-text">Question Content: {{$question->question}}</p>
-                        <a href="{{ route('user.questionGetAll', ['questionId' => $question->id]) }}" class="btn btn-primary">Yorumlara Git</a>
+                        <a href="{{ route('user.questionGetAll', ['questionId' => $question->id]) }}" class="btn btn-primary">Go to Comments</a>
 
                     </div>
                 </div>
