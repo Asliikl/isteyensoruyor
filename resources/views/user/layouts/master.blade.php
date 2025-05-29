@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('page_title','Dashboard')</title>
-    @stack('css') 
+    @stack('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-VouwmI61+po3O1KMYDXtqNkOm3/xiO53n6R4Cnvv9L2P+i7h/Z7PO+XlkPEW9neQ" crossorigin="anonymous">
@@ -17,23 +17,40 @@
 </head>
 
 <body>
-    <div>     
+    <div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('user.home')}}">İsteyen Soruyor</a>
+
+                <a class="navbar-brand" href="{{route('user.home')}}">
+                    <div class="image" style="margin-left: 290px">
+                        <img src="{{asset('dist/img/logo.png')}}" width="150px" alt="User Image">
+                    </div></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li>
-                            <a href="{{route('user.logout')}}" class="text-white"> <i class="fas fa-sign-out-alt">Logout</i></a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('user.answeredQuestions') }}">
+                                <i class="fa fa-comments"></i> My comments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('user.myQuestions') }}">
+                                <i class="fas fa-question-circle"></i> My questions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('user.logout') }}">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
                         </li>
                     </ul>
+
                 </div>
             </div>
-        </nav>        
-    </div>  
+        </nav>
+    </div>
     @yield('content')
 
     @stack('js')
@@ -42,7 +59,7 @@
         alert("{{ $errors->first() }}");
     </script>
     @endif
-    
+
     <!-- jQuery -->
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->

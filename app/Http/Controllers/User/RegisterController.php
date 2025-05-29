@@ -12,7 +12,7 @@ class RegisterController extends Controller
     public function register(){
         return view('user.register');
     }
-    
+
     public function registerPost(UserRequest $request)
     {
         $newUser=User::create([
@@ -20,8 +20,8 @@ class RegisterController extends Controller
             'surname'=>$request->get('surname'),
             'email'=>$request->get('email'),
             'gender'=>$request->get('gender'),
-            'password' => bcrypt($request->get('password')) 
+            'password' => bcrypt($request->get('password'))
         ]);
-        return redirect(route('user.registerPost'));
+        return redirect()->back()->with('success', 'User registered successfully!');
     }
 }

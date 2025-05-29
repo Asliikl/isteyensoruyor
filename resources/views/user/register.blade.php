@@ -7,8 +7,14 @@
    </div>
    <!-- /.card-header -->
    <!-- form start -->
-   
-   <form class="form-horizontal" action="{{ route('user.registerPost') }}" method="POST">
+    <br>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <form class="form-horizontal" action="{{ route('user.registerPost') }}" method="POST">
      @csrf
      <div class="form-group row mt-4">
          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
@@ -46,7 +52,8 @@
          <button type="button" class="btn btn-default float-right"><a href="{{route('user.login')}}">Log in</a></button>
      </div>
     </form>
- 
+
+
 </div>
  <!-- /.card -->
  @if($errors->has('loginError'))
